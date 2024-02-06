@@ -21,6 +21,8 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """Initialize instances
+        """
         self.__dataset = None
 
     def dataset(self) -> List[List]:
@@ -35,11 +37,13 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            assert isinstance(page, int) and isinstance(page_size, int)
-            assert page > 0 and page_size > 0
-            
-            index = index_range(page, page_size)
-            data = self.dataset()
-            if not page <= 0 and page < len(data) or not 0 <= page_size < len(data):
-                return []
-            return data[index[0]:index[1]]
+        """Paginate your dataset which is a list containing popular names
+        """
+        assert isinstance(page, int) and isinstance(page_size, int)
+        assert page > 0 and page_size > 0
+
+        index = index_range(page, page_size)
+        data = self.dataset()
+        if not 0 <= page < len(data) or not 0 <= page_size < len(data):
+            return []
+        return data[index[0]:index[1]]
