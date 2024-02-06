@@ -49,13 +49,22 @@ class Server:
         return data[index[0]:index[1]]
 
     def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, any]:
+        """Return a hateoas dict
+        """
         index = index_range(page, page_size)
-        data = self.dataset()
+        all_data = self.dataset()
+        returned_data = all_data[index[0]:index[1]]
+        total = len(all_data)
+
+        prev = page - 1
+        nxt = page + 1
+        total_pages = (total + page_size - 1) // page_size
+
         return {
-                'page_size': page_size,
+                'page_size': len(returned_data),
                 'page': page,
-                'data': data[index[0]:index[1]],
-                'next_page': page + 1 if page is not None else None,
-                'prev_page': page - 1 if page is not None else None,
-                'total_pages': len(data) // page_size
+                'data': returned_data,
+                'next_page': None if page > total_pages else nxt,
+                'prev_page': None if prev is 0 else prev,
+                'total_pages': total_pages
                 }
