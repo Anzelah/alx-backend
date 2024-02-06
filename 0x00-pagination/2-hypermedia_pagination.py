@@ -64,7 +64,7 @@ class Server:
                 'page_size': len(returned_data),
                 'page': page,
                 'data': returned_data,
-                'next_page': None if page > total_pages else nxt,
+                'next_page': None if page >= total_pages else nxt,
                 'prev_page': None if prev is 0 else prev,
                 'total_pages': total_pages
                 }
