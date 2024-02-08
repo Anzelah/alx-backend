@@ -20,7 +20,7 @@ class BasicCache(BaseCaching):
     def get(self, key):
         """Retrieve values in dictionary linked to a key
         """
-        if key is None or key not in self.cache_data:
+        if key == None or key not in self.cache_data.keys():
             return None
 
         for k in self.cache_data.keys():
