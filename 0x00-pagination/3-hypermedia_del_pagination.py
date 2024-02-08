@@ -40,10 +40,12 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
+        """Implementing deletion resilient into hateoas api costraint
+        """
         dataset = self.dataset()
         indexed_dataset = self.indexed_dataset()
         assert index >= 0 and index < len(indexed_dataset)
-        
+
         ending_index = index + page_size
         data = dataset[index: ending_index - 1]
         next_index = index + page_size
@@ -51,6 +53,6 @@ class Server:
         return {
                 'index': index,
                 'next_index': next_index,
-                'page_size':page_size,
+                'page_size': page_size,
                 'data': data
                 }
