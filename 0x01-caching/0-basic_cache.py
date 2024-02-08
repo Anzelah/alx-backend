@@ -13,8 +13,7 @@ class BasicCache(BaseCaching):
     def put(self, key, item):
         """Assign values to our dictionary
         """
-        if key is not None and item is not None:
-            self.cache_data[key] = item
+        self.cache_data[key] = item
 
     def get(self, key):
         """Retrieve values in dictionary linked to a key
