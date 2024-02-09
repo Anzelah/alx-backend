@@ -15,6 +15,7 @@ class FIFOCache(BaseCaching):
     def put(self, key, item):
         """Discard items when caching is full using FIFO technique
         """
+        self.cache_data[key] = item
         if key is None or item is None:
             return
 
