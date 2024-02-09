@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """create a basic caching"""
 
-from queue import Queue
+from queue import LifoQueue
 BaseCaching = __import__('base_caching').BaseCaching
 
 
@@ -10,17 +10,17 @@ class LIFOCache(BaseCaching):
     """
     def __init__(self):
         super().__init__()
-        self.list = Queue()
+        self.list = LifoQueue()
 
     def put(self, key, item):
         """Discard item from our cache when full using the LIFO method
         """
-        if key is None or itemis None:
+        if key is None or item is None:
             return
         self.cache_data[key] = item
 
         if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            newest = self.list.pp()
+            newest = self.list.get()
             del self.cache_data[newest]
             print("DISCARD: {}" .format(newest))
 
