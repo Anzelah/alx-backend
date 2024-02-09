@@ -9,6 +9,8 @@ class LIFOCache(BaseCaching):
     """Implement a lifo caching replacement policy
     """
     def __init__(self):
+        """ Initiliaze instances
+        """
         super().__init__()
         self.list = LifoQueue()
 
