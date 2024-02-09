@@ -1,23 +1,19 @@
 #!/usr/bin/python3
 """create a basic caching"""
 
-
 from queue import LifoQueue
 BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LIFOCache(BaseCaching):
     """Implement a lifo caching replacement policy
-    This cache uses a Last-In-First-Out (LIFO) strategy for item replacement.
     """
     def __init__(self):
-        """Initialize instances
-        """
         super().__init__()
         self.list = LifoQueue()
 
     def put(self, key, item):
-        """Discard item from our cache when full using the LIFO method
+        """Discard items when caching is full using FIFO technique
         """
         if key is None or item is None:
             return
@@ -32,8 +28,8 @@ class LIFOCache(BaseCaching):
         self.list.put(key)
 
     def get(self, key):
-        """Return the value linked to a key in a dictionary
+        """Return a value linked to a key in dictionary
         """
         if key is None or key not in self.cache_data:
             return None
-        self.cache_data[key] = item
+        return self.cache_data[key]
