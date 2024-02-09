@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """create a basic caching"""
 
+
 from queue import LifoQueue
 BaseCaching = __import__('base_caching').BaseCaching
 
