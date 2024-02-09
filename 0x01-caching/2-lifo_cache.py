@@ -7,6 +7,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 class LIFOCache(BaseCaching):
     """Implement a lifo caching replacement policy
+    This cache uses a Last-In-First-Out (LIFO) strategy for item replacement.
     """
     def __init__(self):
         """Initialize instances
