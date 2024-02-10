@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """create a basic caching using the lifo caching replacement technique"""
 
 from queue import LifoQueue
