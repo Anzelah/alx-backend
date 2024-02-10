@@ -1,5 +1,5 @@
-#!/usr/bin/python3
-"""create a basic caching"""
+#!/usr/bin/env python3
+"""create a basic caching implementing the fifo method"""
 
 from queue import Queue
 BaseCaching = __import__('base_caching').BaseCaching
