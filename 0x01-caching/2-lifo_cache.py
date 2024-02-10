@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""create a basic caching using the lifo caching replacement technique"""
-
+"""create a basic caching using the lifo caching replacement technique
+"""
 from queue import LifoQueue
-BaseCaching = __import__('base_caching').BaseCaching
+from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
