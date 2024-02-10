@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """create a basic caching using the lifo caching replacement technique
 """
-from queue import LifoQueue
 from base_caching import BaseCaching
 
 
@@ -16,7 +15,7 @@ class LIFOCache(BaseCaching):
             LifoCache: A new instance of the LifoCache class.
         """
         super().__init__()
-        self.list = LifoQueue()
+        self.list = []
 
     def put(self, key, item):
         """Discard items when caching is full using FIFO technique
