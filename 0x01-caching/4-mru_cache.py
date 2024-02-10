@@ -18,16 +18,16 @@ class MRUCache(BaseCaching):
         if key is None or item is None:
             return
 
+        if key in self.cache_data:
+            self.cache_data.move_to_end(key)
+        else:
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
+                mru = self.cache_data.popitem()
+                print("DISCARD: {}" .format(mru[0]))
         self.cache_data[key] = item
-        self.cache_data.move_to_end(key)
-
-        if len(self.cache_data) > BaseCaching.MAX_ITEMS:
-            mru = self.cache_data.popitem()
-            print("DISCARD: {}" .format(mru[0]))
 
     def get(self, key):
-        """Return value linked to a key in the dictinary
-        """
+        """Return the value of a linked key in dictionary"""
         if key is None or key not in self.cache_data:
             return None
         self.cache_data.move_to_end(key)
