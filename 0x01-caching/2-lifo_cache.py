@@ -18,6 +18,7 @@ class LIFOCache(BaseCaching):
 
     def put(self, key, item):
         """Discard items when caching is full using FIFO technique
+        Returns the cache but with some items evicted and replaced
         """
         if key is None or item is None:
             return
@@ -33,6 +34,7 @@ class LIFOCache(BaseCaching):
 
     def get(self, key):
         """Return a value linked to a key in dictionary
+        First check if the key is valid and if its indeed in the cache
         """
         if key is None or key not in self.cache_data:
             return None
