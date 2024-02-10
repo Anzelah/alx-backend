@@ -1,16 +1,15 @@
 #!/usr/bin/python3
-"""create a basic caching"""
+"""create a basic caching using the lifo caching replacement technique"""
 
 from queue import LifoQueue
 BaseCaching = __import__('base_caching').BaseCaching
-"""Import modules"""
 
 
 class LIFOCache(BaseCaching):
-    """Implement a lifo caching replacement policy
+    """Implement a caching system which uses the lifo caching replacement method
     """
     def __init__(self):
-        """ Initiliaze our instancessssssss
+        """ Initiliaze our instances with their initial attributes for using within the class
         """
         super().__init__()
         self.list = LifoQueue()
