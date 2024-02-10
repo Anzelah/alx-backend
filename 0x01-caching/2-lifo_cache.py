@@ -6,10 +6,12 @@ from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
-    """Implement a caching system which uses the lifo caching replacement method
     """
+    Implement a caching system which uses the lifo caching replacement method
+    """
+
     def __init__(self):
-        """ Initiliaze our instances with their initial attributes
+        """Initiliaze our instances with their initial attributes
         Returns:
             LifoCache: A new instance of the LifoCache class.
         """
