@@ -9,6 +9,9 @@ class FIFOCache(BaseCaching):
     """Implement a fifo caching replacement policy
     """
     def __init__(self):
+        """Initiliaze our instances with their initial attributes
+        Returns: Cache: A new instance of the FifoCache class.
+        """
         super().__init__()
         self.list = Queue()
 
