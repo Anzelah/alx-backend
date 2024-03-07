@@ -1,8 +1,5 @@
 const kue = require('kue');
 
-const queue = kue.createQueue();
-
-
 const jobs = [
   {
     phoneNumber: '4153518780',
@@ -50,6 +47,7 @@ const jobs = [
   }
 ];
 
+const queue = kue.createQueue({ name: 'push_notification_code_2' });
 jobs.forEach((job) => {
   const new_job = queue.create('push_notification_code_2', job).save();
 
