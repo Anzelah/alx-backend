@@ -49,20 +49,3 @@ const jobs = [
     message: 'This is the code 4321 to verify your account'
   }
 ];
-
-jobs.forEach((job) => {
-  const new_job = queue.create('push_notification_code_2', job).save();
-
-  new_job.on('enqueue', () => {
-    console.log(`Notification job created: ${new_job.id}`);
-  });
-  new_job.on('complete', () => {
-    console.log(`Notification job ${new_job.id} completed`);
-  });
-  new_job.on('failed', (err) => {
-    console.log(`Notification job ${new_job.id} failed: ${err}`);
-  });
-  new_job.on('progress', (progress, data) => {
-    console.log(`Notification job #${new_job.id} ${progress}% complete`);
-  });
-});
